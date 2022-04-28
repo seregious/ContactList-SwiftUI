@@ -8,9 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var contacts: ContactViewModel
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        ZStack(alignment: .bottomTrailing) {
+            
+            BackgroundGradient()
+            
+            TabView {
+                    MainListView(contacts: contacts)
+                        .tabItem {
+                            VStack{
+                                Image(systemName: "person")
+                                Text("Contact List")
+                            }
+                        }
+                    
+                    DetailedListView()
+                        .tabItem {
+                            VStack{
+                                Image(systemName: "book")
+                                Text("Detailed List")
+                            }
+                        }
+                }
+            .tabViewStyle(PageTabViewStyle())
+            
+            plusButton(contacts: contacts)
+        }
+            
     }
 }
 
@@ -19,3 +47,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+
+

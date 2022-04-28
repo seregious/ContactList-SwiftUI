@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct ContactList_SwiftUIApp: App {
+    
+    @StateObject var contacts: ContactViewModel = ContactViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+                    .environmentObject(contacts)
+            }
+            .accentColor(.black)
         }
     }
 }
