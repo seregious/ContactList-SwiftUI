@@ -14,9 +14,10 @@ struct NewContactView: View {
 
     @State var name = ""
     @State var surname = ""
-    @State var photo = ""
     @State var email = ""
     @State var phone = ""
+    
+    @State var showAlert = false
     
     var contact: Contact? = nil
     
@@ -41,10 +42,10 @@ struct NewContactView: View {
                 .padding(20)
                 
                 Button("Save") {
-                    save()
-                    presentationMode.wrappedValue.dismiss()
+                    checkInput()
                 }
                 .buttonStyle(ButtonView())
+                .alert("Fill in at least one field", isPresented: $showAlert) {}
                 
                 Button("Cancel") {
                     presentationMode.wrappedValue.dismiss()
@@ -106,6 +107,18 @@ extension NewContactView {
         saveNewContact()
         } else {
             saveOldContact()
+        }
+    }
+    
+    func checkInput() {
+        if name.count > 2 ||
+            surname.count > 2 ||
+            email.count > 2 ||
+            phone.count > 2 {
+            save()
+            presentationMode.wrappedValue.dismiss()
+        } else {
+            showAlert.toggle()
         }
     }
     

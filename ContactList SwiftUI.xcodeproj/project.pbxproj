@@ -19,6 +19,7 @@
 		A30392402819904C0021D990 /* NewContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A303923F2819904C0021D990 /* NewContactView.swift */; };
 		A30DD04E2819E01900B56536 /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30DD04D2819E01900B56536 /* PersonalInfo.swift */; };
 		A340929F281AE50200D987B8 /* InterfaceModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A340929E281AE50200D987B8 /* InterfaceModifiers.swift */; };
+		A34092A1281B0F1600D987B8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34092A0281B0F1600D987B8 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		A303923F2819904C0021D990 /* NewContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactView.swift; sourceTree = "<group>"; };
 		A30DD04D2819E01900B56536 /* PersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		A340929E281AE50200D987B8 /* InterfaceModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceModifiers.swift; sourceTree = "<group>"; };
+		A34092A0281B0F1600D987B8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			children = (
 				A3039239281981CD0021D990 /* ContactModel.swift */,
 				A303923B281982220021D990 /* ContactViewModel.swift */,
+				A34092A0281B0F1600D987B8 /* DataManager.swift */,
 				A303923D281982860021D990 /* StorageManager.swift */,
 				A30392272819285A0021D990 /* ContactList_SwiftUIApp.swift */,
 				A30392292819285A0021D990 /* ContentView.swift */,
@@ -169,6 +172,7 @@
 				A303923E281982860021D990 /* StorageManager.swift in Sources */,
 				A3039236281928B70021D990 /* MainListView.swift in Sources */,
 				A303923A281981CD0021D990 /* ContactModel.swift in Sources */,
+				A34092A1281B0F1600D987B8 /* DataManager.swift in Sources */,
 				A30392282819285A0021D990 /* ContactList_SwiftUIApp.swift in Sources */,
 				A30DD04E2819E01900B56536 /* PersonalInfo.swift in Sources */,
 			);

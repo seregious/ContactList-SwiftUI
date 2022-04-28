@@ -26,7 +26,7 @@ struct ContentView: View {
                             }
                         }
                     
-                    DetailedListView()
+                DetailedListView(contacts: contacts)
                         .tabItem {
                             VStack{
                                 Image(systemName: "book")

@@ -16,21 +16,20 @@ class ContactViewModel: ObservableObject {
     }
     
     init() {
-        getContacts()
+        fakeData()
+    }
+    
+    func fakeData() {
+        let fakeContacts = DataManager.shared.makeFakeContacts()
+        contactsList += fakeContacts
     }
     
     func getContacts() {
         contactsList = StorageManager.shared.loadContacts()
     }
     
-    func fakeData() {
-            addContact(name: "John", surname: "Lennon", email: "lennon@beatles.com", phone: "444-555")
-            addContact(name: "Paul", surname: "Mccartney", email: "mccartney@beatles.com", phone: "333-888")
-            addContact(name: "George", surname: "Harrison", email: "harrison@beatles.com", phone: "666-111")
-            addContact(name: "Ringo", surname: "Starr", email: "starr@beatles.com", phone: "999-444")
-    }
     
-    func addContact(name: String = "", surname: String = "", photo: String = "", email: String = "", phone: String = "") {
+    func addContact(name: String = "", surname: String = "", email: String = "", phone: String = "") {
         let newContact = Contact(
             name: name,
             surname: surname,
@@ -56,5 +55,20 @@ class ContactViewModel: ObservableObject {
     
     func saveContacts() {
         StorageManager.shared.saveContacts(for: contactsList)
+    }
+    
+    func filterContacts(sort: Int) {
+        contactsList = contactsList.sorted(by: { a, b in
+            switch sort {
+            case 1:
+                return a.name < b.name
+            case 2:
+                return a.name > b.name
+            case 3:
+                return a.surname < b.surname
+            default:
+                return a.surname > b.surname
+            }
+        })
     }
 }

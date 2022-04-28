@@ -51,3 +51,16 @@ struct plusButton: View {
         }
     }
 }
+
+struct rowBackground: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .listRowBackground(
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.ultraThinMaterial)
+                    .padding(4)
+                    .padding(.horizontal, 4)
+                    .shadow(radius: 2, x: 5, y: 5)
+                )
+    }
+}
