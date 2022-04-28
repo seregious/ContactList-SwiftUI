@@ -8,15 +8,42 @@
 import SwiftUI
 
 struct DetailedListView: View {
+    
+    @ObservedObject var contacts: ContactViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            
-            .navigationTitle("Detailed Info")
+        
+        List{
+            ForEach(contacts.contactsList) { contact in
+                Section {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Image(systemName: "phone.circle.fill")
+                            Text("email: \(contact.email)")
+                        }
+
+                        HStack {
+                            Image(systemName: "envelope.circle.fill")
+                            Text("phone: \(contact.phone)")
+                        }
+
+                    }
+                    
+                } header: {
+                    Text(("\(contact.name) \(contact.surname)"))
+                }
+
+            }
+            .modifier(rowBackground())
+        }
+        .padding()
+        .listStyle(.plain)
+        .navigationTitle("Detailed Info")
     }
 }
 
 struct DetailedListView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedListView()
+        DetailedListView(contacts: ContactViewModel())
     }
 }
