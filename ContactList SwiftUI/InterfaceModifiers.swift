@@ -52,6 +52,64 @@ struct plusButton: View {
     }
 }
 
+struct FilterButtons: View {
+    
+    @ObservedObject var contacts: ContactViewModel
+    @State var filterCount = 0
+    var filter: (type: String, image: String) {
+        backgroundFilter()
+    }
+    
+    var body: some View {        
+        Button {
+            filterCount += 1
+            if filterCount > 4 {
+                filterCount = 1
+            }
+            contacts.filterContacts(sort: filterCount)
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.ultraThinMaterial)
+                    .frame(width: UIScreen.main.bounds.width / 2.5, height: 30)
+                    .shadow(color: .black.opacity(0.5), radius: 5, x: 5, y: 5)
+                
+                HStack {
+                    Image(systemName: filter.image)
+                    Text(filter.type)
+                }
+            }
+        }
+    }
+}
+
+extension FilterButtons {
+    func backgroundFilter () -> (String, String) {
+        var type = ""
+        var image = "chevron.right"
+        
+        switch filterCount {
+        case 1:
+            type = "name"
+            image = "chevron.down"
+        case 2:
+            type = "name"
+            image = "chevron.up"
+        case 3:
+            type = "surnname"
+            image = "chevron.down"
+        case 4:
+            type = "surname"
+            image = "chevron.up"
+        default:
+            type = "sort"
+            image = "chevron.right"
+        }
+        
+        return (type, image)
+    }
+}
+
 struct rowBackground: ViewModifier {
     func body(content: Content) -> some View {
         content

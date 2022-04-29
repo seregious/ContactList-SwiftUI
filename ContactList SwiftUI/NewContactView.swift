@@ -9,6 +9,13 @@ import SwiftUI
 
 struct NewContactView: View {
     
+    enum Field {
+        case name
+        case surname
+        case email
+        case phone
+    }
+    
     @ObservedObject var contacts: ContactViewModel
     @Environment(\.presentationMode) var presentationMode
 
@@ -17,7 +24,8 @@ struct NewContactView: View {
     @State var email = ""
     @State var phone = ""
     
-    @State var showAlert = false
+    @State private var showAlert = false
+    @FocusState private var focus: Field?
     
     var contact: Contact? = nil
     
@@ -31,9 +39,13 @@ struct NewContactView: View {
                     VStack(spacing: 30) {
 
                         TextFieldView(field: $name, title: "Name")
+                            .focused($focus, equals: .name)
                         TextFieldView(field: $surname, title: "Surname")
+                            .focused($focus, equals: .surname)
                         TextFieldView(field: $email, title: "e-mail")
+                            .focused($focus, equals: .email)
                         TextFieldView(field: $phone, title: "Phone number")
+                            .focused($focus, equals: .phone)
                         
                     }
                     .padding(20)
@@ -128,6 +140,18 @@ extension NewContactView {
             surname = contact.surname
             email = contact.email
             phone = contact.phone
+        }
+    }
+    
+    func changeFocus() {
+        if name.isEmpty {
+            focus = .name
+        } else if surname.isEmpty {
+            focus = .surname
+        } else if email.isEmpty {
+            focus = .email
+        } else if phone.isEmpty {
+            focus = .phone
         }
     }
 }

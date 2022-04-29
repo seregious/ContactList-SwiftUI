@@ -36,7 +36,12 @@ struct ContentView: View {
                 }
             .tabViewStyle(PageTabViewStyle())
             
-            plusButton(contacts: contacts)
+            VStack(alignment: .trailing) {
+                FilterButtons(contacts: contacts)
+                    .offset(x: -20, y: -8)
+                Spacer()
+                plusButton(contacts: contacts)
+            }
         }
             
     }
