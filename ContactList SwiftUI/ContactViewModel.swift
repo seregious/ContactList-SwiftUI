@@ -47,9 +47,10 @@ class ContactViewModel: ObservableObject {
         saveContacts()
     }
     
-    func updateContact(contact: Contact) {
-        if let index = contactsList.firstIndex(of: contact) {
-            contactsList[index] = contact.updateContact()
+    func updateContact(id: String, name: String, surname: String, email: String, phone: String) {
+        if let index = contactsList.firstIndex(where: {$0.id == id}) {
+            contactsList[index] = Contact.init(id: id, name: name, surname: surname, email: email, phone: phone)
+            print("\(name)")
         }
         saveContacts()
     }

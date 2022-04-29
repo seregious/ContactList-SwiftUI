@@ -24,6 +24,7 @@ struct NewContactView: View {
     @State private var email = ""
     @State private var phone = ""
     @State private var lastField = false
+    @State private var registered = false
     
     @State private var showAlert = false
     @FocusState private var focus: Field?
@@ -125,15 +126,16 @@ extension NewContactView {
     }
     
     func saveOldContact() {
-        let contact = Contact(name: name, surname: surname, email: email, phone: phone)
-        contacts.updateContact(contact: contact)
+        if let contact = contact {
+        contacts.updateContact(id: contact.id, name: name, surname: surname, email: email, phone: phone)
+        }
     }
     
     func save() {
-        if contact == nil {
-        saveNewContact()
-        } else {
+        if registered {
             saveOldContact()
+        } else {
+            saveNewContact()
         }
     }
     
@@ -155,8 +157,11 @@ extension NewContactView {
             surname = contact.surname
             email = contact.email
             phone = contact.phone
+            
+            registered = true
         }
     }
+    
     
     func changeFocus() {
         if name.isEmpty {

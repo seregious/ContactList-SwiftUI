@@ -27,7 +27,7 @@ struct Contact: Codable, Identifiable, Equatable {
         self.phone = phone
     }
     
-    func updateContact() -> Contact {
+    func updateContact(name: String, surname: String, email: String, phone: String) -> Contact {
         Contact(id: id, name: name, surname: surname, email: email, phone: phone)
     }
 }
