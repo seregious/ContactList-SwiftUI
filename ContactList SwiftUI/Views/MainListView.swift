@@ -18,12 +18,17 @@ struct MainListView: View {
                         NavigationLink {
                             PersonalInfo(contacts: contacts, contact: contact)
                         } label: {
-                            Text("\(contact.name) \(contact.surname)")
-                                .font(.headline)
+                            
+                            ZStack {
+                                RowBackground(height: 40)
+                                
+                                Text("\(contact.name) \(contact.surname)")
+                                    .font(.headline)
+                            }
                         }
                     }
-                    .padding()
-                    .modifier(rowBackground())
+                    .padding(5)
+                    .listRowBackground(Color.clear)
                 }
                 .padding(20)
                 .listStyle(.plain)

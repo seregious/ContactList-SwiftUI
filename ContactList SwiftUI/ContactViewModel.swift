@@ -16,7 +16,8 @@ class ContactViewModel: ObservableObject {
     }
     
     init() {
-        fakeData() //comment this line for clear list
+        getContacts() //comment this
+        //fakeData()  //and uncomment this for fake users
     }
     
     func fakeData() {

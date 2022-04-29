@@ -71,14 +71,9 @@
 			children = (
 				A3039239281981CD0021D990 /* ContactModel.swift */,
 				A303923B281982220021D990 /* ContactViewModel.swift */,
-				A34092A0281B0F1600D987B8 /* DataManager.swift */,
-				A303923D281982860021D990 /* StorageManager.swift */,
+				A3987334281BE24F00CC27B8 /* Managers */,
 				A30392272819285A0021D990 /* ContactList_SwiftUIApp.swift */,
-				A30392292819285A0021D990 /* ContentView.swift */,
-				A3039235281928B70021D990 /* MainListView.swift */,
-				A303923F2819904C0021D990 /* NewContactView.swift */,
-				A3039237281928C70021D990 /* DetailedListView.swift */,
-				A30DD04D2819E01900B56536 /* PersonalInfo.swift */,
+				A3987335281BE26200CC27B8 /* Views */,
 				A340929E281AE50200D987B8 /* InterfaceModifiers.swift */,
 				A303922B2819285C0021D990 /* Assets.xcassets */,
 				A303922D2819285C0021D990 /* Preview Content */,
@@ -92,6 +87,27 @@
 				A303922E2819285C0021D990 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A3987334281BE24F00CC27B8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A34092A0281B0F1600D987B8 /* DataManager.swift */,
+				A303923D281982860021D990 /* StorageManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A3987335281BE26200CC27B8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A30392292819285A0021D990 /* ContentView.swift */,
+				A3039235281928B70021D990 /* MainListView.swift */,
+				A303923F2819904C0021D990 /* NewContactView.swift */,
+				A3039237281928C70021D990 /* DetailedListView.swift */,
+				A30DD04D2819E01900B56536 /* PersonalInfo.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

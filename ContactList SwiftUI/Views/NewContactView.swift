@@ -19,13 +19,15 @@ struct NewContactView: View {
     @ObservedObject var contacts: ContactViewModel
     @Environment(\.presentationMode) var presentationMode
 
-    @State var name = ""
-    @State var surname = ""
-    @State var email = ""
-    @State var phone = ""
+    @State private var name = ""
+    @State private var surname = ""
+    @State private var email = ""
+    @State private var phone = ""
+    @State private var lastField = false
     
     @State private var showAlert = false
     @FocusState private var focus: Field?
+    @FocusState private var lastFocus: Bool
     
     var contact: Contact? = nil
     
@@ -46,10 +48,23 @@ struct NewContactView: View {
                             .focused($focus, equals: .email)
                         TextFieldView(field: $phone, title: "Phone number")
                             .focused($focus, equals: .phone)
+                            .focused($lastFocus)
                         
                     }
                     .padding(20)
                     .padding(.vertical, 20)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Spacer()
+                            Button(!lastField ? "Next" : "Done") {
+                                if !lastField {
+                                    changeFocus()
+                                } else {
+                                    lastFocus = false
+                                }
+                            }
+                        }
+                    }
                    }
                 .padding(20)
                 
@@ -152,6 +167,7 @@ extension NewContactView {
             focus = .email
         } else if phone.isEmpty {
             focus = .phone
+            lastField = true
         }
     }
 }
