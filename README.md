@@ -7,6 +7,6 @@ Options:
 3. Edit contact
 4. Sort contacts by name or surname descending and ascending
 
-![Alt text](/images/2022-05-03_20-24-56.png | width=100)
-![Alt text](/images/2022-05-03_20-25-02.png | width=100)
-![Alt text](/images/2022-05-03_20-25-29.png | width=100)
+<img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_20-24-56.png" width="200" />
+<img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_20-25-02.png" width="200" />
+<img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_20-25-29.png" width="200" />
