@@ -11,4 +11,5 @@ Options:
 <img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_20-24-56.png" width="200" />
 <img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_20-25-02.png" width="200" />
 <img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_20-25-29.png" width="200" />
+<img src="https://github.com/seregious/ContactList-SwiftUI/blob/main/images/2022-05-03_21-28-25.png" width="200" />
 </p>
